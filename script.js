@@ -1,40 +1,43 @@
-// ==========================================
-// 1. SHARED STATE & DATA
-// ==========================================
+//checking if flashcards exists, if not sends an empty array
 let flashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
 
+//INITIALIZES USER STATS BY RETRIEVING AND PARSING DATA FROM BROWER LOCAL STORAGE
 let userStats = JSON.parse(localStorage.getItem("flashcardStats")) || {
   xp: 0,
   streak: 0,
   lastStudyDate: null,
-};
+}; //checking if flashcardsstats exists, if not sends an that array
 
-// ==========================================
 // 2. SHARED STATS LOGIC (Runs on all pages)
-// ==========================================
 function saveStats() {
   localStorage.setItem("flashcardStats", JSON.stringify(userStats));
   updateStatsUI();
-}
+} //save userstats to flashcardstats and updates stats ui
 
 function updateStatsUI() {
   const streakDisplay = document.getElementById("streakDisplay");
   const levelDisplay = document.getElementById("levelDisplay");
   const xpDisplay = document.getElementById("xpDisplay");
-  const xpDisplayStudy = document.getElementById("xpDisplayStudy");
 
-  if (streakDisplay) streakDisplay.textContent = userStats.streak;
-  if (xpDisplay) xpDisplay.textContent = userStats.xp;
-  if (xpDisplayStudy) xpDisplayStudy.textContent = userStats.xp;
+  if (streakDisplay) {
+    streakDisplay.textContent = userStats.streak;
+    streakDisplay.style.fontWeight = "bold";
+  }
+  if (xpDisplay) {
+    xpDisplay.textContent = userStats.xp;
+    xpDisplay.style.fontWeight = "bold";
+  }
 
   if (levelDisplay) {
     const currentLevel = Math.floor(userStats.xp / 50) + 1;
     levelDisplay.textContent = currentLevel;
+    levelDisplay.style.fontWeight = "bold";
   }
 }
 
 function checkAndLogStudySession() {
   const today = new Date().toDateString();
+
   if (userStats.lastStudyDate !== today) {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
