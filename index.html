@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Flashcard App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app-container">
+      <header class="top-header">
+        <div class="stat-badge">
+          <i class="fa-solid fa-fire text-orange"></i>
+          <span id="streakDisplay">0</span>
+        </div>
+        <div class="stat-badge">
+          <i class="fa-solid fa-gem text-blue"></i>
+          LV <span id="levelDisplay">1</span> (<span id="xpDisplay">0</span> XP)
+        </div>
+      </header>
+
+      <section class="welcome-section">
+        <div class="avatar">🤖</div>
+        <div class="speech-bubble">
+          <p>Hey! Here is what we need to focus on today!</p>
+        </div>
+      </section>
+
+      <section class="categories-section" style="margin-top: 10px">
+        <h3>Courses</h3>
+        <div class="grid-container" id="categoriesGrid"></div>
+      </section>
+
+      <!-- Clickable Main Card -->
+      <a href="flashcards.html" style="text-decoration: none; color: inherit">
+        <main class="task-card">
+          <div class="blue-banner">
+            <p>
+              <strong
+                ><i class="fa-solid fa-fire"></i> Start learning and unlock your
+                streak!</strong
+              >
+            </p>
+            <span class="subtext">Earn at least 10 XP</span>
+          </div>
+          <div class="card-content">
+            <div class="task-row">
+              <div class="task-icon">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </div>
+              <div class="task-details">
+                <h4>Review your flashcards</h4>
+                <span class="subtext">Tap to start studying</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </a>
+
+      <section class="quick-actions">
+        <h3>Quick actions</h3>
+        <div class="grid-container">
+          <a
+            href="flashcards.html"
+            style="text-decoration: none; color: inherit"
+          >
+            <div class="action-item">
+              <div class="action-icon purple">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <p>My Flashcards</p>
+            </div>
+          </a>
+          <div class="action-item" id="addCardBtn" style="cursor: pointer">
+            <div class="action-icon yellow">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <p>Add Flashcards</p>
+          </div>
+        </div>
+      </section>
+
+      <div id="flashcardModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <form id="flashcardForm" class="flashcard-form" style="margin-top: 0">
+            <h3>Create New Card</h3>
+            <input
+              type="text"
+              id="questionInput"
+              placeholder="Question (e.g., What is HTML?)"
+              required
+            />
+            <input type="text" id="answerInput" placeholder="Answer" required />
+            <input
+              type="text"
+              id="categoryInput"
+              placeholder="Category (e.g., Web Dev)"
+              required
+            />
+            <button type="submit" id="submitBtn">Save Card</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

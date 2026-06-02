@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Study | Flashcard App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body class="focus-mode-body">
+    <a href="index.html" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+    </a>
+
+    <main class="study-container">
+      <h2 id="activeCategory" class="category-header">Loading...</h2>
+
+      <div class="flashcard large-card" id="activeCard">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <span class="card-counter" id="cardCounter">1</span>
+            <h3 id="activeQuestion">Question goes here</h3>
+          </div>
+          <div class="flashcard-back">
+            <p id="activeAnswer">Answer goes here</p>
+
+            <div class="card-study-actions">
+              <button onclick="editCard()" class="action-btn-small">
+                Edit
+              </button>
+              <button onclick="deleteCard()" class="action-btn-small delete">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="study-controls">
+        <button id="prevBtn" class="nav-btn">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="nextBtn" class="nav-btn">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
