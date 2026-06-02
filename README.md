@@ -1,3 +1,7 @@
+## FlashFocus
+
+Study smarter, not harder. A streamlined flashcard web app featuring interactive flip-card mechanics, progress-based gamification, and structured category management.
+
 ## Key Features
 - **Focus Mode**: Distraction-free, single-card flip interface.
 - **Progress Tracking**: Gamified leveling and daily streak system.
