@@ -6,9 +6,8 @@ let userStats = JSON.parse(localStorage.getItem("flashcardStats")) || {
   xp: 0,
   streak: 0,
   lastStudyDate: null,
-}; //checking if flashcardsstats exists, if not sends an that array
+}; //checking if flashcardstats exists, if not sends an that array
 
-// 2. SHARED STATS LOGIC (Runs on all pages)
 function saveStats() {
   localStorage.setItem("flashcardStats", JSON.stringify(userStats));
   updateStatsUI();
@@ -41,7 +40,6 @@ function checkAndLogStudySession() {
   if (userStats.lastStudyDate !== today) {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-
     if (userStats.lastStudyDate === yesterday.toDateString()) {
       userStats.streak += 1;
     } else {
@@ -54,9 +52,7 @@ function checkAndLogStudySession() {
 // Initialize stats immediately
 updateStatsUI();
 
-// ==========================================
-// 3. DASHBOARD LOGIC (Categories & Modal)
-// ==========================================
+// DASHBOARD LOGIC (Categories & Modal)
 const categoriesGrid = document.getElementById("categoriesGrid");
 const modal = document.getElementById("flashcardModal");
 const addCardBtn = document.getElementById("addCardBtn");

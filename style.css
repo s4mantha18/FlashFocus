@@ -66,9 +66,26 @@ body {
   align-items: center;
   gap: 12px;
 }
+
+/* 1. Floating Avatar */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .avatar {
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
   font-size: 32px;
 }
+
 .speech-bubble {
   background-color: var(--bg-card);
   padding: 12px 16px;
@@ -137,6 +154,7 @@ body {
 .blue-banner .subtext {
   font-size: 12px;
   opacity: 0.8;
+  color: white;
 }
 .card-content {
   padding: 20px;
@@ -228,6 +246,24 @@ body {
 .action-item p {
   font-size: 14px;
   font-weight: 500;
+}
+
+/* 2. Interactive Buttons & Quick Actions */
+.action-item,
+.task-card {
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.2s;
+}
+
+.action-item:hover,
+.task-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  background-color: #1a2f50; /* Slightly lighter than card bg */
+}
+
+.action-item:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .flashcard {
@@ -446,8 +482,8 @@ body {
 .close-btn {
   color: var(--text-muted);
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 35px;
+  right: 40px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -456,44 +492,6 @@ body {
 
 .close-btn:hover {
   color: var(--text-main);
-}
-
-/* --- UI Animations --- */
-
-/* 1. Floating Avatar */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.avatar {
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
-}
-
-/* 2. Interactive Buttons & Quick Actions */
-.action-item,
-.task-card {
-  transition:
-    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 0.2s;
-}
-
-.action-item:hover,
-.task-card:hover {
-  transform: translateY(-4px) scale(1.02);
-  background-color: #1a2f50; /* Slightly lighter than card bg */
-}
-
-.action-item:active {
-  transform: translateY(0) scale(0.98);
 }
 
 /* 3. Card Hover & Press States */
