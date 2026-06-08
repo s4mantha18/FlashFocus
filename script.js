@@ -65,6 +65,7 @@ function renderCategories() {
 
   const categoryCounts = {};
   flashcards.forEach((card) => {
+    // Loop through flashcards and count how many cards are in each category
     const cat = card.category || "Uncategorized";
     categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
   });
@@ -78,8 +79,9 @@ function renderCategories() {
   }
 
   for (const [cat, count] of Object.entries(categoryCounts)) {
+    // Loop through each category and create a clickable card for it
     const a = document.createElement("a");
-    a.href = `flashcards.html?category=${encodeURIComponent(cat)}`;
+    a.href = `flashcards.html?category=${encodeURIComponent(cat)}`; // Link to flashcards page with category filter
     a.style.textDecoration = "none";
     a.style.color = "inherit";
 
